@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CropSequenceDialog</class>
+ <widget class="QDialog" name="CropSequenceDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>618</width>
+    <height>718</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>618</width>
+    <height>718</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>618</width>
+    <height>718</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>断层序列裁剪</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../../assets/resources.qrc">
+    <normaloff>:/icons/crop.png</normaloff>:/icons/crop.png</iconset>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" colspan="2">
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>70</height>
+      </size>
+     </property>
+     <property name="title">
+      <string>裁剪工具栏</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item alignment="Qt::AlignLeft">
+       <widget class="QPushButton" name="importImg">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>27</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>导入待裁剪图像序列</string>
+        </property>
+        <property name="statusTip">
+         <string>导入待裁剪图像序列</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../../assets/resources.qrc">
+          <normaloff>:/icons/folder.png</normaloff>:/icons/folder.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>21</width>
+          <height>21</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="importBin">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>27</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>导入Bin序列</string>
+        </property>
+        <property name="statusTip">
+         <string>导入Bin序列</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../../assets/resources.qrc">
+          <normaloff>:/icons/bin.png</normaloff>:/icons/bin.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>21</width>
+          <height>21</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="clearCropWidget">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>27</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>清空</string>
+        </property>
+        <property name="statusTip">
+         <string>清空</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../../assets/resources.qrc">
+          <normaloff>:/icons/clear.png</normaloff>:/icons/clear.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>21</width>
+          <height>21</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="resetCropWidget">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>27</height>
+         </size>
+        </property>
+        <property name="baseSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>复位</string>
+        </property>
+        <property name="statusTip">
+         <string>复位</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../../assets/resources.qrc">
+          <normaloff>:/icons/reset.png</normaloff>:/icons/reset.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>21</width>
+          <height>21</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="deliverToVolume">
+        <property name="minimumSize">
+         <size>
+          <width>33</width>
+          <height>27</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>传送到体绘制</string>
+        </property>
+        <property name="statusTip">
+         <string>传送到体绘制</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../../assets/resources.qrc">
+          <normaloff>:/icons/deliver.png</normaloff>:/icons/deliver.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>21</width>
+          <height>21</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item alignment="Qt::AlignRight">
+       <widget class="QPushButton" name="exportSequence">
+        <property name="minimumSize">
+         <size>
+          <width>33</width>
+          <height>27</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>导入待裁剪图像序列</string>
+        </property>
+        <property name="statusTip">
+         <string>导入待裁剪图像序列</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../../assets/resources.qrc">
+          <normaloff>:/icons/save.png</normaloff>:/icons/save.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>21</width>
+          <height>21</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="2">
+    <widget class="QVTKOpenGLNativeWidget" name="cropWidget"/>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="imageSequenceIndexLabel">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="text">
+      <string>图像索引</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QSlider" name="imageIndex">
+     <property name="toolTip">
+      <string>调整图像序列</string>
+     </property>
+     <property name="statusTip">
+      <string>调整图像序列</string>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QVTKOpenGLNativeWidget</class>
+   <extends>QOpenGLWidget</extends>
+   <header location="global">QVTKOpenGLNativeWidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../../assets/resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

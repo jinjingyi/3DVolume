@@ -1,0 +1,1004 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1188</width>
+    <height>672</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>3D Volume</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../../assets/resources.qrc">
+    <normaloff>:/icons/gooal.png</normaloff>:/icons/gooal.png</iconset>
+  </property>
+  <property name="whatsThis">
+   <string>3DVolume</string>
+  </property>
+  <property name="documentMode">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="0">
+     <widget class="QVTKOpenGLNativeWidget" name="volumeWidget">
+      <property name="minimumSize">
+       <size>
+        <width>300</width>
+        <height>300</height>
+       </size>
+      </property>
+      <property name="toolTip">
+       <string>左键移动：跟随光标变向旋转；Shift+左键移动(或按压滚轮移动)：拖拽模型；Ctrl+左键移动：跟随光标定向旋转；P+光标悬停：显示模型框体</string>
+      </property>
+      <property name="statusTip">
+       <string>左键移动：跟随光标变向旋转；Shift+左键移动(或按压滚轮移动)：拖拽模型；Ctrl+左键移动：跟随光标定向旋转；P+光标悬停：显示模型框体</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="labelFolder">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>文件路径: 空</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QGroupBox" name="groupBox">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>三维视图</string>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <property name="topMargin">
+        <number>1</number>
+       </property>
+       <property name="bottomMargin">
+        <number>1</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="openImageSequence">
+         <property name="minimumSize">
+          <size>
+           <width>33</width>
+           <height>17</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>打开序列图像文件夹</string>
+         </property>
+         <property name="toolTipDuration">
+          <number>-5</number>
+         </property>
+         <property name="statusTip">
+          <string>打开序列图像文件夹</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../../assets/resources.qrc">
+           <normaloff>:/icons/folder.png</normaloff>:/icons/folder.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>21</width>
+           <height>21</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="openVolume">
+         <property name="toolTip">
+          <string>打开VTI模型文件</string>
+         </property>
+         <property name="statusTip">
+          <string>打开VTI模型文件</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../../assets/resources.qrc">
+           <normaloff>:/icons/model.png</normaloff>:/icons/model.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>21</width>
+           <height>21</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="Line" name="line">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="cropSequence">
+         <property name="toolTip">
+          <string>裁剪断层序列</string>
+         </property>
+         <property name="statusTip">
+          <string>裁剪断层序列</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../../assets/resources.qrc">
+           <normaloff>:/icons/crop.png</normaloff>:/icons/crop.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>21</width>
+           <height>21</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="Line" name="line_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="saveVolume">
+         <property name="toolTip">
+          <string>保存VTI模型文件</string>
+         </property>
+         <property name="statusTip">
+          <string>保存VTI模型文件</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../../assets/resources.qrc">
+           <normaloff>:/icons/save.png</normaloff>:/icons/save.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>21</width>
+           <height>21</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_10">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="exportVolumeImage">
+         <property name="toolTip">
+          <string>三维视图截屏</string>
+         </property>
+         <property name="statusTip">
+          <string>三维视图截屏</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../../assets/resources.qrc">
+           <normaloff>:/icons/camera.png</normaloff>:/icons/camera.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>21</width>
+           <height>21</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="1" rowspan="3">
+     <widget class="QTabWidget" name="mainTab">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tabTransferFunction">
+       <attribute name="title">
+        <string>传输函数</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_84">
+        <item row="1" column="1" colspan="3">
+         <widget class="QScrollArea" name="scrollArea">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>632</width>
+             <height>645</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_5">
+            <item>
+             <widget class="QGroupBox" name="colorTFBox">
+              <property name="title">
+               <string>颜色传输函数</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_85">
+               <item row="2" column="0" colspan="2">
+                <widget class="QVTKOpenGLNativeWidget" name="colorTFWidget">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>160</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>左键单击：添加断点；左键移动：左键移动：拖拽断点；左键双击：编辑断点；单击滚轮(或Del)：删除断点</string>
+                 </property>
+                 <property name="statusTip">
+                  <string>左键单击：添加断点；左键移动：左键移动：拖拽断点；左键双击：编辑断点；单击滚轮(或Del)：删除断点</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="scalarTFBox">
+              <property name="title">
+               <string>不透明度传输函数</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_87">
+               <item row="0" column="0" colspan="2">
+                <widget class="QVTKOpenGLNativeWidget" name="scalarTFWidget">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>160</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>左键单击：添加断点；左键移动：左键移动：拖拽断点；单击滚轮(或Del)：删除断点</string>
+                 </property>
+                 <property name="statusTip">
+                  <string>左键单击：添加断点；左键移动：左键移动：拖拽断点；单击滚轮(或Del)：删除断点</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="gradientTFBox">
+              <property name="title">
+               <string>梯度不透明度函数</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_88">
+               <item row="0" column="0" colspan="2">
+                <widget class="QVTKOpenGLNativeWidget" name="gradientTFWidget">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>160</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>左键单击：添加断点；左键移动：左键移动：拖拽断点；单击滚轮(或Del)：删除断点</string>
+                 </property>
+                 <property name="statusTip">
+                  <string>左键单击：添加断点；左键移动：左键移动：拖拽断点；单击滚轮(或Del)：删除断点</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QGroupBox" name="groupBox_2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>70</height>
+           </size>
+          </property>
+          <property name="title">
+           <string>配置文件工具栏</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <property name="topMargin">
+            <number>5</number>
+           </property>
+           <property name="bottomMargin">
+            <number>5</number>
+           </property>
+           <property name="horizontalSpacing">
+            <number>6</number>
+           </property>
+           <item row="0" column="0">
+            <widget class="QPushButton" name="importPreset">
+             <property name="toolTip">
+              <string>加载配置文件</string>
+             </property>
+             <property name="statusTip">
+              <string>加载配置文件</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../../assets/resources.qrc">
+               <normaloff>:/icons/xml.png</normaloff>:/icons/xml.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>21</width>
+               <height>21</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLabel" name="labelTFName">
+             <property name="text">
+              <string>名称</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLineEdit" name="tfName">
+             <property name="toolTip">
+              <string>名称</string>
+             </property>
+             <property name="statusTip">
+              <string>名称</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QLabel" name="labelTFDescription">
+             <property name="text">
+              <string>描述</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="4">
+            <widget class="QLineEdit" name="tfDescription">
+             <property name="toolTip">
+              <string>描述</string>
+             </property>
+             <property name="statusTip">
+              <string>描述</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="5">
+            <widget class="QPushButton" name="exportPreset">
+             <property name="toolTip">
+              <string>保存配置文件</string>
+             </property>
+             <property name="statusTip">
+              <string>保存配置文件</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../../assets/resources.qrc">
+               <normaloff>:/icons/save.png</normaloff>:/icons/save.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>21</width>
+               <height>21</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabSlicePlane">
+       <attribute name="title">
+        <string>截面视图</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="2" column="1">
+         <widget class="QScrollArea" name="scrollArea_2">
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_2">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>794</width>
+             <height>503</height>
+            </rect>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_6">
+            <item row="0" column="2" rowspan="3">
+             <widget class="QGroupBox" name="groupBox_4">
+              <property name="minimumSize">
+               <size>
+                <width>320</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>160</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>测量</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_5">
+               <item row="3" column="3" alignment="Qt::AlignRight">
+                <widget class="QPushButton" name="addMeasureItem">
+                 <property name="baseSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>添加</string>
+                 </property>
+                 <property name="statusTip">
+                  <string>添加</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../../assets/resources.qrc">
+                   <normaloff>:/icons/add.png</normaloff>:/icons/add.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>21</width>
+                   <height>21</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="3" alignment="Qt::AlignRight">
+                <widget class="QPushButton" name="exportMeasureResults">
+                 <property name="toolTip">
+                  <string>保存测量数据</string>
+                 </property>
+                 <property name="statusTip">
+                  <string>保存测量数据</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../../assets/resources.qrc">
+                   <normaloff>:/icons/save.png</normaloff>:/icons/save.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>21</width>
+                   <height>21</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0" alignment="Qt::AlignLeft">
+                <widget class="QPushButton" name="measure">
+                 <property name="toolTip">
+                  <string>测量模式</string>
+                 </property>
+                 <property name="statusTip">
+                  <string>测量模式</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../../assets/resources.qrc">
+                   <normaloff>:/icons/measure.png</normaloff>:/icons/measure.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>21</width>
+                   <height>21</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0" colspan="4">
+                <widget class="QTableWidget" name="measureResultsTable">
+                 <property name="toolTip">
+                  <string>记录测量数据(可编辑)</string>
+                 </property>
+                 <property name="statusTip">
+                  <string>记录测量数据(可编辑)</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="2" alignment="Qt::AlignRight">
+                <widget class="QPushButton" name="deleteMeasureItem">
+                 <property name="toolTip">
+                  <string>删除</string>
+                 </property>
+                 <property name="statusTip">
+                  <string>删除</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../../assets/resources.qrc">
+                   <normaloff>:/icons/del.png</normaloff>:/icons/del.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>21</width>
+                   <height>21</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0" colspan="2">
+                <spacer name="horizontalSpacer_5">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="1" column="1">
+                <spacer name="horizontalSpacer_4">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="coordsAndValueLabel">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="toolTip">
+               <string>显示体素强度值和三维坐标</string>
+              </property>
+              <property name="statusTip">
+               <string>显示体素强度值和三维坐标</string>
+              </property>
+              <property name="text">
+               <string>体素:不在范围内</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <spacer name="horizontalSpacer_3">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>353</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="0" column="0" rowspan="2" colspan="2">
+             <widget class="QGroupBox" name="planeOptions">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>450</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>截面工具栏</string>
+              </property>
+              <property name="flat">
+               <bool>false</bool>
+              </property>
+              <property name="checkable">
+               <bool>false</bool>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_7">
+               <property name="leftMargin">
+                <number>9</number>
+               </property>
+               <property name="topMargin">
+                <number>5</number>
+               </property>
+               <property name="bottomMargin">
+                <number>5</number>
+               </property>
+               <item row="0" column="2">
+                <spacer name="horizontalSpacer_9">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>30</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="0" column="5">
+                <widget class="QPushButton" name="coronalPlane">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>30</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>显示矢状面</string>
+                 </property>
+                 <property name="statusTip">
+                  <string>显示矢状面</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgb(120, 181, 255);</string>
+                 </property>
+                 <property name="text">
+                  <string>矢状面</string>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>40</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="6">
+                <spacer name="horizontalSpacer_2">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>30</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="0" column="4">
+                <widget class="QPushButton" name="axialPlane">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>30</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>显示横断面</string>
+                 </property>
+                 <property name="statusTip">
+                  <string>显示横断面</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgb(120, 181, 255);</string>
+                 </property>
+                 <property name="text">
+                  <string>横断面</string>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>40</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QPushButton" name="enableDisablePlane">
+                 <property name="toolTip">
+                  <string>在体绘制中显示或隐藏截面视图</string>
+                 </property>
+                 <property name="statusTip">
+                  <string>在体绘制中显示或隐藏截面视图</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../../assets/resources.qrc">
+                   <normaloff>:/icons/eye.png</normaloff>:/icons/eye.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>21</width>
+                   <height>21</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QPushButton" name="sagitalPlane">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>30</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>显示冠状面</string>
+                 </property>
+                 <property name="statusTip">
+                  <string>显示冠状面</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgb(120, 181, 255);</string>
+                 </property>
+                 <property name="text">
+                  <string>冠状面</string>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>40</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="7">
+                <widget class="QPushButton" name="exportSliceImage">
+                 <property name="toolTip">
+                  <string>截面视图截屏</string>
+                 </property>
+                 <property name="statusTip">
+                  <string>截面视图截屏</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../../assets/resources.qrc">
+                   <normaloff>:/icons/camera.png</normaloff>:/icons/camera.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>21</width>
+                   <height>21</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0" colspan="8">
+                <widget class="QVTKOpenGLNativeWidget" name="slicesWidget">
+                 <property name="minimumSize">
+                  <size>
+                   <width>200</width>
+                   <height>200</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>测量模式下，鼠标左键锚点，右键删除点</string>
+                 </property>
+                 <property name="statusTip">
+                  <string>测量模式下，鼠标左键锚点，右键删除点</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QPushButton" name="resetSlice">
+                 <property name="toolTip">
+                  <string>复位</string>
+                 </property>
+                 <property name="statusTip">
+                  <string>复位</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../../assets/resources.qrc">
+                   <normaloff>:/icons/reset.png</normaloff>:/icons/reset.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>21</width>
+                   <height>21</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1188</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>文件</string>
+    </property>
+    <addaction name="actionOpenImageSequence"/>
+    <addaction name="separator"/>
+    <addaction name="actionPreferences"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionOpenImageSequence">
+   <property name="icon">
+    <iconset resource="../../assets/resources.qrc">
+     <normaloff>:/icons/folder.png</normaloff>:/icons/folder.png</iconset>
+   </property>
+   <property name="text">
+    <string>打开序列图像文件夹</string>
+   </property>
+   <property name="toolTip">
+    <string>打开序列图像文件夹</string>
+   </property>
+   <property name="statusTip">
+    <string>打开序列图像文件夹</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::WindowShortcut</enum>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset resource="../../assets/resources.qrc">
+     <normaloff>:/icons/exit.png</normaloff>:/icons/exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>退出</string>
+   </property>
+   <property name="toolTip">
+    <string>退出</string>
+   </property>
+   <property name="statusTip">
+    <string>退出</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionPreferences">
+   <property name="icon">
+    <iconset resource="../../assets/resources.qrc">
+     <normaloff>:/icons/setting.png</normaloff>:/icons/setting.png</iconset>
+   </property>
+   <property name="text">
+    <string>配置</string>
+   </property>
+   <property name="toolTip">
+    <string>配置</string>
+   </property>
+   <property name="statusTip">
+    <string>配置</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QVTKOpenGLNativeWidget</class>
+   <extends>QOpenGLWidget</extends>
+   <header location="global">QVTKOpenGLNativeWidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../../assets/resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
